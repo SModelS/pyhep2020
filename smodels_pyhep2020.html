@@ -13222,10 +13222,11 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install smodels
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># smodels is registered at the python packaging index</span>
+<span class="o">!</span>pip install smodels
 </pre></div>
 
     </div>
@@ -13243,13 +13244,13 @@ div#notebook {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Requirement already satisfied: smodels in /home/walten/.local/lib/python3.8/site-packages (1.2.3)
-Requirement already satisfied: numpy&gt;=1.13.0 in /home/walten/.local/lib/python3.8/site-packages (from smodels) (1.19.0)
 Requirement already satisfied: pyslha&gt;=3.1.0 in /home/walten/.local/lib/python3.8/site-packages (from smodels) (3.2.4)
+Requirement already satisfied: numpy&gt;=1.13.0 in /home/walten/.local/lib/python3.8/site-packages (from smodels) (1.19.0)
 Requirement already satisfied: argparse in /home/walten/.local/lib/python3.8/site-packages (from smodels) (1.4.0)
 Requirement already satisfied: requests&gt;=2.0.0 in /usr/lib/python3/dist-packages (from smodels) (2.22.0)
-Requirement already satisfied: scipy&gt;=1.0.0 in /home/walten/.local/lib/python3.8/site-packages (from smodels) (1.4.1)
 Requirement already satisfied: unum&gt;=4.0.0 in /home/walten/.local/lib/python3.8/site-packages (from smodels) (4.1.4)
 Requirement already satisfied: docutils&gt;=0.3 in /usr/lib/python3/dist-packages (from smodels) (0.16)
+Requirement already satisfied: scipy&gt;=1.0.0 in /home/walten/.local/lib/python3.8/site-packages (from smodels) (1.4.1)
 Requirement already satisfied: tex2pix&gt;=0.1.5 in /home/walten/.local/lib/python3.8/site-packages (from pyslha&gt;=3.1.0-&gt;smodels) (0.3.1)
 </pre>
 </div>
@@ -13366,7 +13367,7 @@ fixed production modes, fixed branching ratios, and with the signal strength bei
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">smodels.experiment.databaseObj</span> <span class="k">import</span> <span class="n">Database</span>
@@ -13379,11 +13380,14 @@ fixed production modes, fixed branching ratios, and with the signal strength bei
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># instantiate the official v1.2.3 database. triggers a download.</span>
-<span class="n">database</span> <span class="o">=</span> <span class="n">Database</span> <span class="p">(</span> <span class="s2">&quot;official&quot;</span> <span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># instantiate a database. triggers a download from a CERN server.</span>
+<span class="c1"># in this tutorial, you are free to use either our &quot;unittest&quot; database, </span>
+<span class="c1"># or the &quot;official&quot; v1.2.3 database. &quot;official&quot; is about 1 GB large,</span>
+<span class="c1"># so if things are small, then use &quot;unittest&quot;</span>
+<span class="n">database</span> <span class="o">=</span> <span class="n">Database</span> <span class="p">(</span> <span class="s2">&quot;unittest&quot;</span> <span class="p">)</span> <span class="c1">## &quot;official&quot;</span>
 <span class="nb">print</span> <span class="p">(</span> <span class="n">database</span> <span class="p">)</span>
 </pre></div>
 
@@ -13401,10 +13405,10 @@ fixed production modes, fixed branching ratios, and with the signal strength bei
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Database version: 1.2.3
-------------------------
-132 experimental results: 67 CMS, 65 ATLAS, 64 @ 8 TeV, 68 @ 13 TeV
-354 datasets, 2022 txnames.
+<pre>Database version: unittest123
+------------------------------
+11 experimental results: 7 CMS, 4 ATLAS, 7 @ 8 TeV, 4 @ 13 TeV
+109 datasets, 536 txnames.
 
 </pre>
 </div>
@@ -13416,7 +13420,7 @@ fixed production modes, fixed branching ratios, and with the signal strength bei
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## databases can of course also be constructed or augmented by the user. In its raw form, it consists of many </span>
@@ -13432,7 +13436,7 @@ fixed production modes, fixed branching ratios, and with the signal strength bei
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## lets find out how many results we find in the database. Some results are superseded (i.e. an update of the same</span>
@@ -13451,7 +13455,54 @@ fixed production modes, fixed branching ratios, and with the signal strength bei
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[14]:</div>
+    <div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>10</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## exp results can have multiple signal regions -- we call them datasets. Lets count the number of datasets in the</span>
+<span class="c1">## database.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">([</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">datasets</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">database</span><span class="o">.</span><span class="n">getExpResults</span><span class="p">(</span> <span class="n">useSuperseded</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span> <span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[7]:</div>
 
 
 
@@ -13468,54 +13519,7 @@ fixed production modes, fixed branching ratios, and with the signal strength bei
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## exp results can have multiple signal regions -- we call them datasets. Lets count the number of datasets in the</span>
-<span class="c1">## database.</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">([</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">datasets</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">database</span><span class="o">.</span><span class="n">getExpResults</span><span class="p">(</span> <span class="n">useSuperseded</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span> <span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[18]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>330</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## finally, per signal region we may have results for several simplified models, lets count the total</span>
@@ -13529,7 +13533,7 @@ fixed production modes, fixed branching ratios, and with the signal strength bei
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">([</span> <span class="nb">sum</span><span class="p">([</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">txnameList</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">datasets</span> <span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">database</span><span class="o">.</span><span class="n">getExpResults</span><span class="p">(</span> <span class="n">useSuperseded</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span> <span class="p">])</span>
@@ -13545,13 +13549,13 @@ fixed production modes, fixed branching ratios, and with the signal strength bei
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[19]:</div>
+    <div class="prompt output_prompt">Out[9]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>1955</pre>
+<pre>535</pre>
 </div>
 
 </div>
@@ -13562,7 +13566,7 @@ fixed production modes, fixed branching ratios, and with the signal strength bei
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## we have two types of results, upper-limit type (upper limits on production cross sections) and efficiency-map </span>
@@ -13579,7 +13583,7 @@ fixed production modes, fixed branching ratios, and with the signal strength bei
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">([</span> <span class="nb">sum</span><span class="p">([</span> <span class="nb">len</span><span class="p">([</span><span class="n">z</span> <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">y</span><span class="o">.</span><span class="n">txnameList</span> <span class="k">if</span> <span class="n">z</span><span class="o">.</span><span class="n">hasLikelihood</span><span class="p">()</span> <span class="p">]</span> <span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">datasets</span> <span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">database</span><span class="o">.</span><span class="n">getExpResults</span><span class="p">()</span> <span class="p">])</span>
@@ -13595,13 +13599,13 @@ fixed production modes, fixed branching ratios, and with the signal strength bei
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[22]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>1774</pre>
+<pre>515</pre>
 </div>
 
 </div>
@@ -13612,7 +13616,7 @@ fixed production modes, fixed branching ratios, and with the signal strength bei
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## thats difficult to read. let&#39;s do this slowly:</span>
@@ -13642,7 +13646,7 @@ fixed production modes, fixed branching ratios, and with the signal strength bei
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>I am counting 1774 likelihoods.
+<pre>I am counting 515 likelihoods.
 </pre>
 </div>
 </div>
@@ -13677,7 +13681,7 @@ parts can be matched against the database:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import those parts of smodels that are needed for this exercise</span>
@@ -13694,7 +13698,7 @@ parts can be matched against the database:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define the SLHA file name that contains the model we wish to decompose</span>
@@ -13708,7 +13712,7 @@ parts can be matched against the database:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Perform the decomposition. &quot;elements&quot; with predicted cross sections smaller than 0.5 fb</span>
@@ -13726,7 +13730,7 @@ parts can be matched against the database:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## mostly for reasons of efficiency, the simplified model &quot;elements&quot; are grouped into </span>
@@ -13786,7 +13790,7 @@ number of vertices: [2, 3], number of vertex particles: [[2, 1], [1, 2, 1]], num
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Let&#39;s have a look at the elements from the fourth topology, i.e. all &quot;elements&quot; with one decay on each of the</span>
@@ -13871,7 +13875,7 @@ that should cover many typical use cases:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>runSModelS.py -h
@@ -13944,7 +13948,7 @@ optional arguments:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Remember, we had a list of experimental results stored in &quot;listOfResp&quot;, </span>
@@ -13960,7 +13964,7 @@ optional arguments:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Compute the theory predictions for each experimental result and print them:</span>
@@ -14019,46 +14023,52 @@ optional arguments:
 <pre>
  Theory Predictions and Constraints:
 
- ATLAS-SUSY-2015-06 (13 TeV)
-------------------------
-TxNames =  [&#39;T1&#39;, &#39;T2&#39;]
-Theory Prediction =  3.36E-03 [pb]
-UL for theory prediction =  1.57E+01 [fb]
-r =  0.21393447618060063
-Chi2, likelihood= 0.19126732682759062 0.0004981515642570796
-
- ATLAS-SUSY-2016-07 (13 TeV)
+ CMS-PAS-SUS-15-002 (13 TeV)
 ------------------------
 TxNames =  [&#39;T1&#39;]
 Theory Prediction =  4.46E-03 [pb]
-UL for theory prediction =  3.03E+01 [fb]
-r =  0.14727905266558072
+UL for theory prediction =  6.81E+01 [fb]
+r =  0.06546813917867421
+
+ ATLAS-SUSY-2013-02 (8 TeV)
 ------------------------
-TxNames =  [&#39;T5WW&#39;]
-Theory Prediction =  1.03E-01 [pb]
-UL for theory prediction =  1.04E+03 [fb]
-r =  0.09938938741214856
+TxNames =  [&#39;T1&#39;]
+Theory Prediction =  3.92E-04 [pb]
+UL for theory prediction =  1.08E+01 [fb]
+r =  0.03620691467464338
 ------------------------
 TxNames =  [&#39;T6WW&#39;]
-Theory Prediction =  4.81E-02 [pb]
-UL for theory prediction =  5.37E+01 [fb]
-r =  0.894687782445611
+Theory Prediction =  6.57E-03 [pb]
+UL for theory prediction =  1.72E+01 [fb]
+r =  0.3823100896692222
 ------------------------
 TxNames =  [&#39;T2&#39;]
-Theory Prediction =  9.58E-03 [pb]
-UL for theory prediction =  1.63E+01 [fb]
-r =  0.5868683831474176
-
- ATLAS-SUSY-2016-07 (13 TeV)
+Theory Prediction =  1.77E-03 [pb]
+UL for theory prediction =  6.10E+00 [fb]
+r =  0.29082248817957596
 ------------------------
-TxNames =  [&#39;T1&#39;, &#39;T2&#39;, &#39;T5GQ&#39;, &#39;T5WW&#39;, &#39;T6WW&#39;, &#39;TGQ&#39;]
-Theory Prediction =  8.70E-03 [pb]
-UL for theory prediction =  1.27E+00 [fb]
-r =  6.849090310998737
-Chi2, likelihood= 25.052822448508863 3.531385826095259e-09
+TxNames =  [&#39;T5WW&#39;]
+Theory Prediction =  9.07E-03 [pb]
+UL for theory prediction =  3.23E+01 [fb]
+r =  0.28048687857303356
 
-The largest r-value (theory/upper limit ratio) is  6.849090310998737
-(The input model is likely excluded by ATLAS-SUSY-2016-07)
+ ATLAS-SUSY-2013-12 (8 TeV)
+------------------------
+TxNames =  [&#39;TChiWZ&#39;]
+Theory Prediction =  1.85E-02 [pb]
+UL for theory prediction =  4.84E+02 [fb]
+r =  0.03813203554779975
+
+ CMS-SUS-13-012 (8 TeV)
+------------------------
+TxNames =  [&#39;T1&#39;, &#39;T2&#39;]
+Theory Prediction =  1.36E-04 [pb]
+UL for theory prediction =  1.21E+00 [fb]
+r =  0.11260635791889409
+Chi2, likelihood= 0.6453736685170952 0.0036842875361852794
+
+The largest r-value (theory/upper limit ratio) is  0.3823100896692222
+(The input model is not excluded by the simplified model results)
 </pre>
 </div>
 </div>
@@ -14078,7 +14088,210 @@ The largest r-value (theory/upper limit ratio) is  6.849090310998737
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Part-6:-Future-developments">Part 6: Future developments<a class="anchor-link" href="#Part-6:-Future-developments">&#182;</a></h2>
+<h2 id="Part-6:-show-&quot;missing-topologies&quot;">Part 6: show "missing topologies"<a class="anchor-link" href="#Part-6:-show-&quot;missing-topologies&quot;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Produce some diagnostics about topologies that remained "unconstrained", i.e. do results for this topology exist
+in principle, and we just fall outside of the mass grids?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## import the coverage module for this task</span>
+<span class="kn">from</span> <span class="nn">smodels.tools</span> <span class="k">import</span> <span class="n">coverage</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create missing Topologies object</span>
+<span class="n">uncovered</span> <span class="o">=</span> <span class="n">coverage</span><span class="o">.</span><span class="n">Uncovered</span><span class="p">(</span><span class="n">listOfTopologies</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Print basic information about coverage:</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Total missing topology cross section (fb): </span><span class="si">%10.3E</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">uncovered</span><span class="o">.</span><span class="n">getMissingXsec</span><span class="p">()))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Total cross section where we are outside the mass grid (fb): </span><span class="si">%10.3E</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">uncovered</span><span class="o">.</span><span class="n">getOutOfGridXsec</span><span class="p">()))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Total cross section in long cascade decays (fb): </span><span class="si">%10.3E</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">uncovered</span><span class="o">.</span><span class="n">getLongCascadeXsec</span><span class="p">()))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Total cross section in decays with asymmetric branches (fb): </span><span class="si">%10.3E</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">uncovered</span><span class="o">.</span><span class="n">getAsymmetricXsec</span><span class="p">()))</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Total missing topology cross section (fb):  2.325E+03
+Total cross section where we are outside the mass grid (fb):  2.337E+02
+Total cross section in long cascade decays (fb):  7.354E+02
+Total cross section in decays with asymmetric branches (fb):  1.557E+03
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get list of topologies which are not tested by any result:</span>
+<span class="n">missingTopos</span> <span class="o">=</span> <span class="n">uncovered</span><span class="o">.</span><span class="n">missingTopos</span>
+<span class="c1"># print information about the first few missing topologies and</span>
+<span class="c1"># the elements contributing to the topology: </span>
+<span class="k">for</span> <span class="n">top</span> <span class="ow">in</span> <span class="n">missingTopos</span><span class="o">.</span><span class="n">topos</span><span class="p">[:</span><span class="mi">5</span><span class="p">]:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">missing topology:&#39;</span><span class="p">,</span><span class="n">top</span><span class="o">.</span><span class="n">topo</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Contributing elements:&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">top</span><span class="o">.</span><span class="n">contributingElements</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">el</span><span class="p">:</span> <span class="n">el</span><span class="o">.</span><span class="n">weight</span><span class="p">):</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="n">el</span><span class="p">,</span><span class="s1">&#39;, xsection:&#39;</span><span class="p">,</span><span class="n">el</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+missing topology: [[],[]](MET,MET)
+Contributing elements:
+[[],[]] , xsection: [&#39;8.00E+00 [TeV]:4.81E-04 [pb]&#39;, &#39;1.30E+01 [TeV]:1.58E-03 [pb]&#39;]
+
+missing topology: [[],[[jet]]](MET,MET)
+Contributing elements:
+[[],[[q]]] , xsection: [&#39;8.00E+00 [TeV]:6.15E-04 [pb]&#39;, &#39;1.30E+01 [TeV]:3.15E-03 [pb]&#39;]
+
+missing topology: [[],[[jet,jet]]](MET,MET)
+Contributing elements:
+[[],[[c,c]]] , xsection: [&#39;8.00E+00 [TeV]:9.63E-05 [pb]&#39;, &#39;1.30E+01 [TeV]:5.47E-04 [pb]&#39;]
+[[],[[q,q]]] , xsection: [&#39;8.00E+00 [TeV]:9.63E-05 [pb]&#39;, &#39;1.30E+01 [TeV]:5.47E-04 [pb]&#39;]
+
+missing topology: [[[W]],[[W]]](MET,MET)
+Contributing elements:
+[[[W+]],[[W-]]] , xsection: [&#39;8.00E+00 [TeV]:5.96E-02 [pb]&#39;, &#39;1.30E+01 [TeV]:1.45E-01 [pb]&#39;]
+
+missing topology: [[[higgs]],[[higgs]]](MET,MET)
+Contributing elements:
+[[[higgs]],[[higgs]]] , xsection: [&#39;8.00E+00 [TeV]:5.63E-04 [pb]&#39;, &#39;1.30E+01 [TeV]:1.85E-03 [pb]&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get list of topologies which are outside the upper limit and efficiency map grids:</span>
+<span class="n">outsideGrid</span> <span class="o">=</span> <span class="n">uncovered</span><span class="o">.</span><span class="n">outsideGrid</span>
+<span class="c1"># print information about the first few missing topologies and</span>
+<span class="c1"># the elements contributing to the topology: </span>
+<span class="k">for</span> <span class="n">top</span> <span class="ow">in</span> <span class="n">outsideGrid</span><span class="o">.</span><span class="n">topos</span><span class="p">[:</span><span class="mi">5</span><span class="p">]:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">outside the grid topology:&#39;</span><span class="p">,</span><span class="n">top</span><span class="o">.</span><span class="n">topo</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Contributing elements:&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">top</span><span class="o">.</span><span class="n">contributingElements</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="n">el</span><span class="p">,</span><span class="s1">&#39;mass=&#39;</span><span class="p">,</span><span class="n">el</span><span class="o">.</span><span class="n">getMasses</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+outside the grid topology: [[[W]],[[higgs]]](MET,MET)
+Contributing elements:
+[[[W+]],[[higgs]]] mass= [[2.69E+02 [GeV], 1.29E+02 [GeV]], [2.69E+02 [GeV], 1.29E+02 [GeV]]]
+[[[W-]],[[higgs]]] mass= [[2.69E+02 [GeV], 1.29E+02 [GeV]], [2.69E+02 [GeV], 1.29E+02 [GeV]]]
+
+outside the grid topology: [[[jet]],[[b,b]]](MET,MET)
+Contributing elements:
+[[[q]],[[b,b]]] mass= [[9.91E+02 [GeV], 1.29E+02 [GeV]], [8.65E+02 [GeV], 1.29E+02 [GeV]]]
+
+outside the grid topology: [[[jet]],[[jet,jet]]](MET,MET)
+Contributing elements:
+[[[q]],[[c,c]]] mass= [[9.91E+02 [GeV], 1.29E+02 [GeV]], [8.65E+02 [GeV], 1.29E+02 [GeV]]]
+[[[q]],[[q,q]]] mass= [[9.91E+02 [GeV], 1.29E+02 [GeV]], [8.65E+02 [GeV], 1.29E+02 [GeV]]]
+[[[q]],[[c,c]]] mass= [[9.92E+02 [GeV], 1.29E+02 [GeV]], [8.65E+02 [GeV], 1.29E+02 [GeV]]]
+[[[q]],[[q,q]]] mass= [[9.92E+02 [GeV], 1.29E+02 [GeV]], [8.65E+02 [GeV], 1.29E+02 [GeV]]]
+
+outside the grid topology: [[[jet]],[[t,t]]](MET,MET)
+Contributing elements:
+[[[q]],[[t+,t-]]] mass= [[9.91E+02 [GeV], 1.29E+02 [GeV]], [8.65E+02 [GeV], 1.29E+02 [GeV]]]
+
+outside the grid topology: [[[b],[W]],[[b],[W]]](MET,MET)
+Contributing elements:
+[[[b],[W+]],[[b],[W-]]] mass= [[8.78E+02 [GeV], 2.69E+02 [GeV], 1.29E+02 [GeV]], [8.78E+02 [GeV], 2.69E+02 [GeV], 1.29E+02 [GeV]]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Part-7:-Future-developments">Part 7: Future developments<a class="anchor-link" href="#Part-7:-Future-developments">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -14142,7 +14355,7 @@ Uncorrelated analyses can then be combined via their likelihoods.</li>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Part-7:-References">Part 7: References<a class="anchor-link" href="#Part-7:-References">&#182;</a></h2>
+<h2 id="Part-8:-Links-and-References">Part 8: Links and References<a class="anchor-link" href="#Part-8:-Links-and-References">&#182;</a></h2>
 </div>
 </div>
 </div>
